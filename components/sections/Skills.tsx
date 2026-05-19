@@ -7,6 +7,7 @@ import {
   SiGit, SiFigma, SiPostman, SiNpm
 } from "react-icons/si";
 import { TbBrandVscode } from "react-icons/tb";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 interface SkillItem {
   name: string;
@@ -68,6 +69,8 @@ function SkillCard({ title, skills }: { title: string; skills: SkillItem[] }) {
 }
 
 export function Skills() {
+  const { t } = useLanguage();
+
   return (
     <section id="skills" className="relative py-24 px-6">
       <div className="max-w-6xl mx-auto">
@@ -79,7 +82,7 @@ export function Skills() {
           className="mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Mis <span className="text-[#06b6d4]">Skills</span>
+            {t('skills.title.1')} <span className="text-[#06b6d4]">{t('skills.title.2')}</span>
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-[#54628A] to-[#06b6d4] rounded-full" />
         </motion.div>
@@ -91,7 +94,7 @@ export function Skills() {
             viewport={{ once: true }}
             transition={{ delay: 0.1, duration: 0.5 }}
           >
-            <SkillCard title="Frontend" skills={frontendSkills} />
+            <SkillCard title={t('skills.category.frontend')} skills={frontendSkills} />
           </motion.div>
 
           <motion.div
@@ -100,7 +103,7 @@ export function Skills() {
             viewport={{ once: true }}
             transition={{ delay: 0.2, duration: 0.5 }}
           >
-            <SkillCard title="Backend" skills={backendSkills} />
+            <SkillCard title={t('skills.category.backend')} skills={backendSkills} />
           </motion.div>
 
           <motion.div
@@ -109,7 +112,7 @@ export function Skills() {
             viewport={{ once: true }}
             transition={{ delay: 0.3, duration: 0.5 }}
           >
-            <SkillCard title="Herramientas" skills={toolSkills} />
+            <SkillCard title={t('skills.category.tools')} skills={toolSkills} />
           </motion.div>
         </div>
       </div>
