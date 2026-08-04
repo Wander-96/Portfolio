@@ -1,92 +1,72 @@
 "use client";
 
-import { motion, useMotionValue, useTransform, animate } from "framer-motion";
-import { useEffect } from "react";
-import { GlowingButton } from "@/components/ui/GlowingButton";
-import { ArrowRight } from "lucide-react";
+import { TerminalButton } from "@/components/ui/TerminalButton";
 import Link from "next/link";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 export function Hero() {
   const { t } = useLanguage();
-  const text = t('hero.title');
-  const count = useMotionValue(0);
-  const rounded = useTransform(count, (latest) => Math.round(latest));
-  const displayText = useTransform(rounded, (latest) => text.slice(0, latest));
-
-  useEffect(() => {
-    // Reset the count animation when the text (language) changes
-    count.set(0);
-    const controls = animate(count, text.length, {
-      type: "tween",
-      duration: 1.5,
-      ease: "linear",
-      delay: 0.2,
-    });
-    return controls.stop;
-  }, [count, text]);
 
   return (
-    <section className="relative min-h-[calc(100vh-80px)] flex items-center justify-center overflow-hidden px-6">
-      <div className="max-w-5xl mx-auto text-center z-10 flex flex-col items-center">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="mb-6 inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel text-sm text-[#06b6d4]"
-        >
-          <span className="relative flex h-3 w-3">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#06b6d4] opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-3 w-3 bg-[#06b6d4]"></span>
-          </span>
-          {t('hero.badge')}
-        </motion.div>
+    <section className="relative min-h-[calc(100vh-80px)] w-full flex flex-col md:flex-row border-b-hairline">
+      {/* Left Column: Text & Data */}
+      <div className="w-full md:w-1/2 flex flex-col justify-center p-6 sm:p-8 md:p-16 md:border-r-hairline border-white/10 relative">
+        {/* Top-left metadata */}
+        <div className="md:absolute top-8 left-8 text-xs font-mono uppercase tracking-widest text-[var(--color-accent-subtle)] mb-8 md:mb-0 hidden md:block">
+          [ {t('hero.badge')} ]
+        </div>
+        <div className="text-xs font-mono uppercase tracking-widest text-[var(--color-accent-subtle)] mb-8 md:hidden">
+          [ {t('hero.badge')} ]
+        </div>
 
-        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 flex items-center justify-center min-h-[120px] md:min-h-[160px]">
-          <motion.span className="text-transparent bg-clip-text bg-gradient-to-r from-[#607BBA] via-[#8B5CF6] to-[#06B6D4]">
-            {displayText}
-          </motion.span>
-          <motion.span
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ repeat: Infinity, duration: 0.8, ease: "linear" }}
-            className="inline-block w-[0.1em] h-[1em] bg-[#06b6d4] ml-2 align-middle"
-          />
-        </h1>
+        <div className="mt-4 md:mt-12 flex-1 flex flex-col justify-center">
+          <h1 className="text-5xl sm:text-6xl md:text-8xl font-serif leading-none tracking-tight mb-6 sm:mb-8 text-[var(--color-offwhite)] uppercase">
+            {t('hero.title').split(' ').map((word, i) => (
+              <span key={i} className="block">{word}</span>
+            ))}
+          </h1>
 
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-          className="text-lg md:text-2xl text-slate-400 max-w-2xl mb-10 font-light"
-        >
-          {t('hero.description')}
-        </motion.p>
+          <p className="font-mono text-xs sm:text-sm md:text-base text-gray-400 max-w-md mb-8 sm:mb-12 uppercase leading-relaxed">
+            {t('hero.description')}
+          </p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
-          className="flex flex-col sm:flex-row items-center gap-4"
-        >
-          <Link href="#projects" className="focus:outline-none">
-            <GlowingButton className="gap-2">
-              {t('hero.viewProjects')}
-              <ArrowRight className="w-4 h-4" />
-            </GlowingButton>
-          </Link>
-          
-          <Link 
-            href="#contact"
-            className="px-8 py-3 rounded-full border border-white/10 hover:bg-white/5 transition-colors text-white font-medium"
-          >
-            {t('hero.contactMe')}
-          </Link>
-        </motion.div>
+          <div className="flex flex-col sm:flex-row gap-4 mb-8 md:mb-0">
+            <Link href="#projects" className="focus:outline-none">
+              <TerminalButton>{t('hero.viewProjects')}</TerminalButton>
+            </Link>
+            
+            <Link href="#contact" className="focus:outline-none">
+              <TerminalButton className="border-transparent underline underline-offset-4 hover:border-[var(--color-offwhite)]">
+                {t('hero.contactMe')}
+              </TerminalButton>
+            </Link>
+          </div>
+        </div>
+
+        {/* Bottom-left metadata */}
+        <div className="mt-8 md:mt-0 md:absolute bottom-8 left-8 text-[9px] sm:text-[10px] font-mono uppercase tracking-widest text-gray-500 flex flex-col gap-1">
+          <span>LAT: -34.6037</span>
+          <span>LNG: -58.3816</span>
+          <span>SYS_VER: 2.0.4</span>
+        </div>
       </div>
 
-      {/* Decorative gradient orb */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#54628A] rounded-full blur-[120px] opacity-20 pointer-events-none mix-blend-screen" />
+      {/* Right Column: Image */}
+      <div className="w-full md:w-1/2 relative h-[50vh] min-h-[400px] md:min-h-full md:h-auto bg-[var(--color-charcoal)] border-t border-white/10 md:border-t-0 p-6 md:p-8">
+        <div className="absolute inset-6 md:inset-8 border border-white/10 p-2">
+          {/* Using fondo_port as requested. */}
+          <div 
+            className="w-full h-full bg-cover bg-center grayscale contrast-125 bg-no-repeat"
+            style={{ backgroundImage: 'url("/fondo_port.png")' }}
+          />
+          
+          {/* Corner accents */}
+          <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-[var(--color-offwhite)]" />
+          <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-[var(--color-offwhite)]" />
+          <div className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-[var(--color-offwhite)]" />
+          <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-[var(--color-offwhite)]" />
+        </div>
+      </div>
     </section>
   );
 }

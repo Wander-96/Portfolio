@@ -1,21 +1,24 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { EB_Garamond, Space_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { BackgroundCanvas } from "@/components/layout/BackgroundCanvas";
-
-import { CustomCursor } from "@/components/ui/CustomCursor";
 import { LanguageProvider } from "@/lib/i18n/LanguageContext";
 
-const inter = Inter({
+const garamond = EB_Garamond({
   subsets: ["latin"],
-  variable: "--font-sans",
+  variable: "--font-serif",
+});
+
+const spaceMono = Space_Mono({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-mono",
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio | Full Stack Developer",
-  description: "Modern high-performance personal portfolio website built with Next.js and Framer Motion.",
+  title: "Portfolio | Architecture & Engineering",
+  description: "High-performance software architecture portfolio.",
 };
 
 export default function RootLayout({
@@ -24,11 +27,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} h-full antialiased dark scroll-smooth scroll-pt-[5.5rem]`}>
-      <body className="min-h-full flex flex-col relative text-slate-50 cursor-none">
+    <html lang="en" className={`${garamond.variable} ${spaceMono.variable} h-full antialiased dark scroll-smooth scroll-pt-[5.5rem]`}>
+      <body className="min-h-full flex flex-col relative font-mono text-[var(--color-offwhite)]" suppressHydrationWarning>
         <LanguageProvider>
-          <CustomCursor />
-          <BackgroundCanvas />
           <Navbar />
           <main className="flex-1 w-full pt-20">
             {children}

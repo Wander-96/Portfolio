@@ -1,33 +1,37 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-brand: #54628A;
-  --color-brand-cyan: #06b6d4; /* Tailwind cyan-500 */
-  --color-background: #020617; /* slate-950 */
-  --color-foreground: #f8fafc; /* slate-50 */
+  --color-charcoal: #121212;
+  --color-offwhite: #F4F4F0;
+  --color-accent-subtle: #333333;
+  --color-background: var(--color-charcoal);
+  --color-foreground: var(--color-offwhite);
+  --font-serif: "EB Garamond", serif;
+  --font-mono: "Space Mono", monospace;
 }
 
 :root {
-  --background: #020617;
-  --foreground: #f8fafc;
+  --background: #121212;
+  --foreground: #F4F4F0;
 }
 
 body {
   background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
   overflow-x: hidden;
 }
 
-/* Base utility for glassmorphism panels to be used throughout */
+/* Brutalist utilities */
 @layer utilities {
-  .glass-panel {
-    @apply bg-[#54628A]/10 backdrop-blur-md border border-white/10;
+  .border-hairline {
+    @apply border border-white/10;
   }
-}
-
-@media (pointer: fine) {
-  * {
-    cursor: none !important;
+  
+  .border-b-hairline {
+    @apply border-b border-white/10;
+  }
+  
+  .border-r-hairline {
+    @apply border-r border-white/10;
   }
 }

@@ -12,54 +12,60 @@ import { useLanguage } from "@/lib/i18n/LanguageContext";
 interface SkillItem {
   name: string;
   icon: React.ElementType;
-  color: string;
 }
 
 const frontendSkills: SkillItem[] = [
-  { name: "React", icon: SiReact, color: "#61DAFB" },
-  { name: "Next.js", icon: SiNextdotjs, color: "#FFFFFF" },
-  { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
-  { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
-  { name: "HTML5", icon: SiHtml5, color: "#E34F26" },
-  { name: "Tailwind", icon: SiTailwindcss, color: "#06B6D4" },
+  { name: "React", icon: SiReact },
+  { name: "Next.js", icon: SiNextdotjs },
+  { name: "TypeScript", icon: SiTypescript },
+  { name: "JavaScript", icon: SiJavascript },
+  { name: "HTML5", icon: SiHtml5 },
+  { name: "Tailwind", icon: SiTailwindcss },
 ];
 
 const backendSkills: SkillItem[] = [
-  { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
-  { name: "Python", icon: SiPython, color: "#3776AB" },
-  { name: "MongoDB", icon: SiMongodb, color: "#47A248" },
-  { name: "MySQL", icon: SiMysql, color: "#4479A1" },
-  { name: "Supabase", icon: SiSupabase, color: "#3ECF8E" },
+  { name: "Node.js", icon: SiNodedotjs },
+  { name: "Python", icon: SiPython },
+  { name: "MongoDB", icon: SiMongodb },
+  { name: "MySQL", icon: SiMysql },
+  { name: "Supabase", icon: SiSupabase },
 ];
 
 const toolSkills: SkillItem[] = [
-  { name: "Git", icon: SiGit, color: "#F05032" },
-  { name: "VS Code", icon: TbBrandVscode, color: "#007ACC" },
-  { name: "Figma", icon: SiFigma, color: "#F24E1E" },
-  { name: "Postman", icon: SiPostman, color: "#FF6C37" },
-  { name: "NPM", icon: SiNpm, color: "#CB3837" },
+  { name: "Git", icon: SiGit },
+  { name: "VS Code", icon: TbBrandVscode },
+  { name: "Figma", icon: SiFigma },
+  { name: "Postman", icon: SiPostman },
+  { name: "NPM", icon: SiNpm },
 ];
 
 function SkillBadge({ skill }: { skill: SkillItem }) {
   return (
     <motion.div
-      whileHover={{ y: -5, scale: 1.05 }}
-      className="flex flex-col items-center justify-center p-4 bg-[#11131A] rounded-2xl border border-white/5 shadow-lg gap-3"
+      whileHover={{ y: -2 }}
+      className="group flex flex-col items-center justify-center p-3 sm:p-4 border border-white/10 bg-[var(--color-charcoal)] hover:border-[var(--color-offwhite)] transition-colors gap-3"
     >
-      <skill.icon className="w-8 h-8 md:w-10 md:h-10 transition-colors" style={{ color: skill.color }} />
-      <span className="text-xs md:text-sm font-medium text-slate-400">{skill.name}</span>
+      <skill.icon className="w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8 text-gray-600 group-hover:text-[var(--color-offwhite)] transition-colors" />
+      <span className="text-[9px] sm:text-[10px] md:text-xs font-mono uppercase tracking-widest text-gray-600 group-hover:text-[var(--color-offwhite)] transition-colors text-center">
+        {skill.name}
+      </span>
     </motion.div>
   );
 }
 
 function SkillCard({ title, skills }: { title: string; skills: SkillItem[] }) {
   return (
-    <div className="bg-[#0A0D14]/80 backdrop-blur-md rounded-3xl p-6 md:p-8 border border-white/5">
-      <div className="flex items-center mb-8">
-        <div className="w-1.5 h-6 bg-[#06b6d4] rounded-full mr-3" />
-        <h3 className="text-xl font-bold text-white tracking-wide">{title}</h3>
+    <div className="border border-white/10 p-5 sm:p-6 lg:p-8 relative bg-[var(--color-charcoal)] h-full">
+      {/* Corner accents */}
+      <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-[var(--color-offwhite)]" />
+      <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-[var(--color-offwhite)]" />
+      <div className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-[var(--color-offwhite)]" />
+      <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-[var(--color-offwhite)]" />
+      
+      <div className="flex items-center mb-6 lg:mb-8 border-b border-white/10 pb-4">
+        <h3 className="text-xs sm:text-sm md:text-base font-mono uppercase tracking-widest text-[var(--color-offwhite)]">{title}</h3>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3 lg:gap-4">
         {skills.map((skill) => (
           <SkillBadge key={skill.name} skill={skill} />
         ))}
@@ -72,27 +78,31 @@ export function Skills() {
   const { t } = useLanguage();
 
   return (
-    <section id="skills" className="relative py-24 px-6">
-      <div className="max-w-6xl mx-auto">
+    <section id="skills" className="relative py-20 md:py-32 px-4 md:px-8 border-b-hairline">
+      <div className="max-w-5xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-16"
+          className="mb-12 md:mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            {t('skills.title.1')} <span className="text-[#06b6d4]">{t('skills.title.2')}</span>
+          <div className="text-xs font-mono uppercase tracking-widest text-[var(--color-accent-subtle)] mb-4">
+            [ 02 ]
+          </div>
+          <h2 className="text-5xl md:text-7xl font-serif text-[var(--color-offwhite)] uppercase mb-6 tracking-tight">
+            {t('skills.title.1')} {t('skills.title.2')}
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-[#54628A] to-[#06b6d4] rounded-full" />
+          <div className="w-full h-px bg-white/10" />
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 justify-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1, duration: 0.5 }}
+            className="flex flex-col h-full max-w-sm sm:max-w-md md:max-w-none mx-auto w-full"
           >
             <SkillCard title={t('skills.category.frontend')} skills={frontendSkills} />
           </motion.div>
@@ -102,6 +112,7 @@ export function Skills() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2, duration: 0.5 }}
+            className="flex flex-col h-full max-w-sm sm:max-w-md md:max-w-none mx-auto w-full"
           >
             <SkillCard title={t('skills.category.backend')} skills={backendSkills} />
           </motion.div>
@@ -111,6 +122,7 @@ export function Skills() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3, duration: 0.5 }}
+            className="flex flex-col h-full md:col-span-2 lg:col-span-1 max-w-sm sm:max-w-md md:max-w-none mx-auto w-full"
           >
             <SkillCard title={t('skills.category.tools')} skills={toolSkills} />
           </motion.div>

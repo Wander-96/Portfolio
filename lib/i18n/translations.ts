@@ -13,18 +13,18 @@ export const translations: Translations = {
     'nav.skills': 'Skills',
     'nav.projects': 'Proyectos',
     'nav.contact': 'Contacto',
-    
+
     // Hero
-    'hero.badge': 'Disponible para nuevas oportunidades',
-    'hero.title': 'Full Stack Developer',
-    'hero.description': 'Creando experiencias digitales de alto rendimiento. Convirtiendo problemas complejos en interfaces hermosas e intuitivas.',
-    'hero.viewProjects': 'Ver mis proyectos',
-    'hero.contactMe': 'Contáctame',
-    
+    'hero.badge': 'ESTADO: DISPONIBLE',
+    'hero.title': 'ARQUITECTURA FRONTEND',
+    'hero.description': 'Sistemas escalables. Precisión QA. Interfaces de alto rendimiento.',
+    'hero.viewProjects': 'VER SISTEMAS',
+    'hero.contactMe': 'INICIAR PROTOCOLO',
+
     // About
     'about.title.1': 'Sobre',
     'about.title.2': 'mí',
-    'about.p1': '¡Hola! Soy <strong class="text-white font-semibold">Santiago</strong>. Mi camino en la tecnología es el resultado de una curiosidad constante por entender cómo funcionan las cosas y el compromiso de hacer que funcionen mejor.',
+    'about.p1': 'Hola! Soy <strong class="text-white font-semibold">Santiago</strong>. Mi camino en la tecnología es el resultado de una curiosidad constante por entender cómo funcionan las cosas y el compromiso de hacer que funcionen mejor.',
     'about.p2': 'Vengo del mundo del <strong class="text-white font-semibold">Diseño Sonoro</strong>, donde gestioné la precisión técnica en más de 230 shows por el Reino Unido. Esa experiencia me enseñó algo vital: bajo presión, la atención al detalle y un flujo de trabajo lógico lo son todo. Hoy, aplico esa misma rigurosidad al desarrollo de software.',
     'about.p3': 'Como <strong class="text-white font-semibold">Desarrollador Fullstack con alma de QA</strong>, no solo escribo código; lo pongo a prueba. Me especializo en el ecosistema de React y Next.js, pero siempre con una mirada preventiva. Mi objetivo es construir interfaces que no solo sean visualmente impactantes, sino también robustas, estables y seguras.',
     'about.p4': 'Actualmente, estoy profundizando mis conocimientos en el Backend (Node.js/Python) y bases de datos en la UTN, complementando mi formación técnica con certificaciones en <strong class="text-white font-semibold">QA Manual</strong> para cerrar el ciclo de calidad de cada producto que entrego.',
@@ -45,14 +45,14 @@ export const translations: Translations = {
     'nav.skills': 'Skills',
     'nav.projects': 'Projects',
     'nav.contact': 'Contact',
-    
+
     // Hero
-    'hero.badge': 'Available for new opportunities',
-    'hero.title': 'Full Stack Developer',
-    'hero.description': 'Creating high-performance digital experiences. Turning complex problems into beautiful and intuitive interfaces.',
-    'hero.viewProjects': 'View my projects',
-    'hero.contactMe': 'Contact me',
-    
+    'hero.badge': 'STATUS: AVAILABLE',
+    'hero.title': 'FRONTEND ARCHITECTURE',
+    'hero.description': 'Scalable systems. QA precision. High-performance interfaces.',
+    'hero.viewProjects': 'VIEW SYSTEMS',
+    'hero.contactMe': 'INIT PROTOCOL',
+
     // About
     'about.title.1': 'About',
     'about.title.2': 'me',
@@ -77,14 +77,14 @@ export const translations: Translations = {
     'nav.skills': 'Habilidades',
     'nav.projects': 'Projetos',
     'nav.contact': 'Contato',
-    
+
     // Hero
-    'hero.badge': 'Disponível para novas oportunidades',
-    'hero.title': 'Full Stack Developer',
-    'hero.description': 'Criando experiências digitais de alto desempenho. Transformando problemas complexos em interfaces belas e intuitivas.',
-    'hero.viewProjects': 'Ver meus projetos',
-    'hero.contactMe': 'Contate-me',
-    
+    'hero.badge': 'STATUS: DISPONÍVEL',
+    'hero.title': 'ARQUITETURA FRONTEND',
+    'hero.description': 'Sistemas escaláveis. Precisão QA. Interfaces de alto desempenho.',
+    'hero.viewProjects': 'VER SISTEMAS',
+    'hero.contactMe': 'INICIAR PROTOCOLO',
+
     // About
     'about.title.1': 'Sobre',
     'about.title.2': 'mim',
