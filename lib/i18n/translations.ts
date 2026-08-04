@@ -16,7 +16,7 @@ export const translations: Translations = {
 
     // Hero
     'hero.badge': 'ESTADO: DISPONIBLE',
-    'hero.title': 'ARQUITECTURA FRONTEND',
+    'hero.title': 'ARQUITECTURA\nFULL STACK',
     'hero.description': 'Sistemas escalables. Precisión QA. Interfaces de alto rendimiento.',
     'hero.viewProjects': 'VER SISTEMAS',
     'hero.contactMe': 'INICIAR PROTOCOLO',
@@ -48,7 +48,7 @@ export const translations: Translations = {
 
     // Hero
     'hero.badge': 'STATUS: AVAILABLE',
-    'hero.title': 'FRONTEND ARCHITECTURE',
+    'hero.title': 'FULL STACK\nARCHITECTURE',
     'hero.description': 'Scalable systems. QA precision. High-performance interfaces.',
     'hero.viewProjects': 'VIEW SYSTEMS',
     'hero.contactMe': 'INIT PROTOCOL',
@@ -80,7 +80,7 @@ export const translations: Translations = {
 
     // Hero
     'hero.badge': 'STATUS: DISPONÍVEL',
-    'hero.title': 'ARQUITETURA FRONTEND',
+    'hero.title': 'ARQUITETURA\nFULL STACK',
     'hero.description': 'Sistemas escaláveis. Precisão QA. Interfaces de alto desempenho.',
     'hero.viewProjects': 'VER SISTEMAS',
     'hero.contactMe': 'INICIAR PROTOCOLO',

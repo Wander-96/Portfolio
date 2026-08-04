@@ -46,7 +46,7 @@ function SkillBadge({ skill }: { skill: SkillItem }) {
       className="group flex flex-col items-center justify-center p-3 sm:p-4 border border-white/10 bg-[var(--color-charcoal)] hover:border-[var(--color-offwhite)] transition-colors gap-3"
     >
       <skill.icon className="w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8 text-gray-600 group-hover:text-[var(--color-offwhite)] transition-colors" />
-      <span className="text-[9px] sm:text-[10px] md:text-xs font-mono uppercase tracking-widest text-gray-600 group-hover:text-[var(--color-offwhite)] transition-colors text-center">
+      <span className="text-[8px] sm:text-[9px] md:text-[10px] font-mono uppercase tracking-wider text-gray-600 group-hover:text-[var(--color-offwhite)] transition-colors text-center w-full break-normal whitespace-nowrap">
         {skill.name}
       </span>
     </motion.div>

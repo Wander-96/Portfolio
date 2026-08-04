@@ -1,9 +1,13 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-charcoal: #121212;
-  --color-offwhite: #F4F4F0;
-  --color-accent-subtle: #333333;
+  --color-charcoal: #1E1E22;
+  --color-offwhite: #DCCBB7;
+  --color-accent-subtle: #7A8B9E;
+  --color-accent-warm: #E6A65D;
+  --color-mid-tone: #B39E88;
+  --color-ink: #383230;
+  
   --color-background: var(--color-charcoal);
   --color-foreground: var(--color-offwhite);
   --font-serif: "EB Garamond", serif;
@@ -11,8 +15,8 @@
 }
 
 :root {
-  --background: #121212;
-  --foreground: #F4F4F0;
+  --background: #1E1E22;
+  --foreground: #DCCBB7;
 }
 
 body {
@@ -24,14 +28,14 @@ body {
 /* Brutalist utilities */
 @layer utilities {
   .border-hairline {
-    @apply border border-white/10;
+    @apply border border-[var(--color-ink)];
   }
   
   .border-b-hairline {
-    @apply border-b border-white/10;
+    @apply border-b border-[var(--color-ink)];
   }
   
   .border-r-hairline {
-    @apply border-r border-white/10;
+    @apply border-r border-[var(--color-ink)];
   }
 }
